@@ -13,9 +13,24 @@ public class Exercises2 {
     You can return the answer in any order.
     */
 
-    public int[] twoSum(int[] nums, int target) {
-        // TODO
-        return null;
+    public static int[] twoSum(int[] nums, int target) {
+        int[] indices = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            int difference = target - nums[i];
+            boolean found = false;
+            for (int temp = i + 1; temp < nums.length; temp++)
+            {
+                if (difference == nums[temp]) {
+                    indices[0] = i;
+                    indices[1] = temp;
+                    found = true;
+                    break;
+                }
+            }
+            if (found)
+                break;
+        }
+        return indices;
     }
 
     /*
@@ -64,6 +79,6 @@ public class Exercises2 {
     }
 
     public static void main(String[] args) {
-        // test your code here!
+
     }
 }
