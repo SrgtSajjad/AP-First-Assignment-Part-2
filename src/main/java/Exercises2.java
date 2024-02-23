@@ -63,9 +63,112 @@ public class Exercises2 {
     Given a roman numeral, convert it to an integer.
     */
 
-    public int romanToInt(String s) {
-        // TODO
-        return 0;
+    public static int romanToInt(String s) {
+        Map<String, Integer> dictionary = new HashMap<>();
+        int result = 0;
+        dictionary.put("I", 1);
+        dictionary.put("IV", 4);
+        dictionary.put("V", 5);
+        dictionary.put("IX", 9);
+        dictionary.put("X", 10);
+        dictionary.put("XL", 40);
+        dictionary.put("L", 50);
+        dictionary.put("XC", 90);
+        dictionary.put("C", 100);
+        dictionary.put("CD", 400);
+        dictionary.put("D", 500);
+        dictionary.put("CM", 900);
+        dictionary.put("M", 1000);
+        dictionary.put(" ", 0);
+
+
+        if (s.contains("IV"))
+        {
+            int count = 0;
+            int index = s.indexOf("IV");
+
+            while (index != -1) {
+                count++;
+                index = s.indexOf("IV", index + 1);
+            }
+
+            result += count * dictionary.get("IV");
+            s = s.replaceAll("IV", "  ");
+        }
+        if (s.contains("IX"))
+        {
+            int count = 0;
+            int index = s.indexOf("IX");
+
+            while (index != -1) {
+                count++;
+                index = s.indexOf("IX", index + 1);
+            }
+
+            result += count * dictionary.get("IX");
+            s = s.replaceAll("IX", "  ");
+        }
+        if (s.contains("XL"))
+        {
+            int count = 0;
+            int index = s.indexOf("XL");
+
+            while (index != -1) {
+                count++;
+                index = s.indexOf("XL", index + 1);
+            }
+
+            result += count * dictionary.get("XL");
+            s = s.replaceAll("XL", "  ");
+        }
+        if (s.contains("XC"))
+        {
+            int count = 0;
+            int index = s.indexOf("XC");
+
+            while (index != -1) {
+                count++;
+                index = s.indexOf("XC", index + 1);
+            }
+
+            result += count * dictionary.get("XC");
+            s = s.replaceAll("XC", "  ");
+        }
+        if (s.contains("CD"))
+        {
+            int count = 0;
+            int index = s.indexOf("CD");
+
+            while (index != -1) {
+                count++;
+                index = s.indexOf("CD", index + 1);
+            }
+
+            result += count * dictionary.get("CD");
+            s = s.replaceAll("CD", "  ");
+        }
+        if (s.contains("CM"))
+        {
+            int count = 0;
+            int index = s.indexOf("CM");
+
+            while (index != -1) {
+                count++;
+                index = s.indexOf("CM", index + 1);
+            }
+
+            result += count * dictionary.get("CM");
+            s = s.replaceAll("CM", "  ");
+        }
+
+        for (int i = 0; i< s.length(); i++)
+        {
+            result += dictionary.get("" + s.charAt(i));
+        }
+
+
+
+        return result;
     }
 
     /*
@@ -79,6 +182,5 @@ public class Exercises2 {
     }
 
     public static void main(String[] args) {
-
     }
 }
